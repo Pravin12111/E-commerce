@@ -1,0 +1,21 @@
+{
+  "name": "restaurant-server",
+  "version": "1.0.0",
+  "description": "best restaurant forever",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "Tasty",
+    "Food"
+  ],
+  "author": "Pravin Chavan",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "mongoose": "^8.0.0",
+    "nodemon": "^3.0.1"
+  }
+}
