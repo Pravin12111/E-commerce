@@ -1,0 +1,26 @@
+.product-card{
+    width: 250px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+}
+.btn-stack{
+    display: flex;
+}
+.product-card-image{
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin: 10px auto;
+}
+.btn{
+    padding: 12px;
+    margin: 12px;
+    display: flex;
+    background-color: #0000ff;
+    color: white;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid white;
+}

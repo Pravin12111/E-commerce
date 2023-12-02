@@ -3,6 +3,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 import mongoose from 'mongoose';
 import product from './modules/product.js';
+
+import User from './modules/user.js';
+
 const app = express();
 app.use(express.json());
 
@@ -29,16 +32,20 @@ connectMongodb();
 })*/
 
 app.post('/product', async (req, res) => {
+    const image = req.body.image;
     const name = req.body.name;
     const price = req.body.price;
     const description = req.body.description;
 
+    
     const newProduct = new product({ 
+        image:image,
         name: name,
         price: price,
         description: description
     });
 
+    try{
     const savedProduct = await newProduct.save();
     /* const product = {
         name:name,
@@ -52,7 +59,12 @@ app.post('/product', async (req, res) => {
         success: true,
         data: savedProduct,
         message: "product added successfully"
+    })}catch(e){
+    res.json({
+        success: false,
+        message: e.message,
     })
+}
 })
 
 app.get('/products',async(req,res)=>{
@@ -89,9 +101,10 @@ app.delete('/product/:id',async(req,res)=>{
 
 app.put('/product/:id',async(req,res)=>{
     const {id} =req.params;
-    const {name,price,description} = req.body;
+    const {image,name,price,description} = req.body;
 
     await product.updateOne({_id:id},{$set: {
+        image:image,
         name:name,
         price:price,
         description:description
@@ -117,6 +130,56 @@ app.get('/tick',(req,res)=>{
 app.get('/Hi',(req,res)=>{
     res.send('Hello');
 })*/
+
+
+app.post('/signup',async(req,res)=>{
+    const {name,email,mobile,password} = req.body;
+
+    const user =new User({
+        name:name,
+        email:email,
+        mobile:mobile,
+        password:password
+    })
+
+    try{
+        const savedUser = await user.save();
+        return res.json(
+            {
+                success: true,
+                data: savedUser,
+                message:"User registered  successfully"
+            }
+        )
+    }catch(e){
+        return res.json(
+            {
+                success: false,
+                message: e.message
+            }
+        )
+    }
+})
+
+app.post('/login',async(req,res)=>{
+    const {email,password} = req.body;
+
+    const user = await User.findOne({email:email,password:password});
+
+    if(user){
+        return res.json({
+            success:true,
+            data: user,
+            message: "User Login successfully"
+        })
+    }
+    else{
+        return res.json({
+            success:false,
+            message: "Invalid email and password"
+        })
+    }
+})
 const PORT = 5000;
 
 app.listen(PORT,()=>{
