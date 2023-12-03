@@ -1,0 +1,45 @@
+
+div {
+
+    margin: 0 auto;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+
+.order-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.order-card h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+.order-card p {
+    margin: 5px 0;
+}
+
+.order-card p.total-amount {
+    font-weight: bold;
+}
+
+.order-card p.shipping-address {
+    color: #555;
+}
+
+.img-container {
+    max-width: 100%;
+    height: auto;     
+    display: block;   
+    margin: 0 auto;   
+}

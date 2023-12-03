@@ -6,6 +6,8 @@ import product from './modules/product.js';
 
 import User from './modules/user.js';
 
+import Order from './modules/order.js';
+
 const app = express();
 app.use(express.json());
 
@@ -132,7 +134,7 @@ app.get('/Hi',(req,res)=>{
 })*/
 
 
-app.post('/signup',async(req,res)=>{
+app.post('/Signup',async(req,res)=>{
     const {name,email,mobile,password} = req.body;
 
     const user =new User({
@@ -161,7 +163,7 @@ app.post('/signup',async(req,res)=>{
     }
 })
 
-app.post('/login',async(req,res)=>{
+app.post('/Login',async(req,res)=>{
     const {email,password} = req.body;
 
     const user = await User.findOne({email:email,password:password});
@@ -179,6 +181,37 @@ app.post('/login',async(req,res)=>{
             message: "Invalid email and password"
         })
     }
+})
+
+app.post('/order',async(req,res)=>{
+    const {product,user,quantity,shippingAddress} =req.body;
+
+    const order = new Order({
+        product:product,
+        user:user,
+        quantity:quantity,
+        shippingAddress:shippingAddress
+    });
+
+    const savedOrder = await order.save();
+
+    return res.json({
+        success: true,
+        data: savedOrder,
+        message: "order placed successfully"
+    })
+})
+
+app.get("/orders",async(req,res)=>{
+    const {id} = req.query;
+
+    const orders = await Order.find({user: id}).populate("product");
+
+    res.json({
+        success: true,
+        data: orders,
+        message: "orders retrived successfully"
+    })
 })
 const PORT = 5000;
 
