@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 import mongoose from 'mongoose';
 import product from './modules/product.js';
+import path from 'path';
+const __dirname = path.resolve();
 
 import User from './modules/user.js';
 
@@ -213,6 +215,14 @@ app.get("/orders",async(req,res)=>{
         message: "orders retrived successfully"
     })
 })
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+    
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+    });
+}
 const PORT = 5000;
 
 app.listen(PORT,()=>{
