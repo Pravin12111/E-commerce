@@ -2,4 +2,8 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    position: absolute;
+}
+.text-center{
+    position: relative;
 }

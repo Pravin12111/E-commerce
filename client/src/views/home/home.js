@@ -3,6 +3,7 @@ import './home.css';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import axios from 'axios';
 import checkLogin from "../../utils/Auth";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Home(){
     const [products,setProducts] = useState([]);
@@ -24,6 +25,8 @@ function Home(){
 
 
     return(
+        <>
+        <Navbar/>
     <div> 
         <h1 className="text-center">All Products</h1>
 
@@ -39,7 +42,7 @@ function Home(){
         </div>
     </div>
 
-    
+    </>
     )
 }
 
