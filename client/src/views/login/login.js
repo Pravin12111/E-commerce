@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './login.css';
 import axios from "axios";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Login(){
 
@@ -22,6 +23,8 @@ function Login(){
         }
     }
     return(
+        <>
+        <Navbar/>
         <div className="login-container">
             <h1 className="login-title">Login</h1>
             <div className="input-container">
@@ -52,6 +55,7 @@ function Login(){
             <button className="login-btn" onClick={login}>
             Login</button>
         </div>
+        </>
     )
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './signup.css';
 import axios from "axios";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Signup(){
 
@@ -26,6 +27,8 @@ function Signup(){
 
 
     return(
+        <>
+        <Navbar/>
         <div className="signup-container">
             <h1 className="signup-title">Signup</h1>
 
@@ -87,6 +90,7 @@ function Signup(){
         >
             Sign up</button>
         </div>
+        </>
     )
 }
 

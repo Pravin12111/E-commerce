@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import checkLogin from "../../utils/Auth";
 import axios from "axios";
 import "./Buy.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function Buy(){
     const {id} = useParams();
@@ -50,6 +51,8 @@ export default function Buy(){
         window.location.href = "/orders"
     }
     return(
+        <>
+        <Navbar/>
         <div className="buy-container">
             <img src={product.image} alt={product.name} className="buy-product-img"/>
             <div>
@@ -75,5 +78,6 @@ export default function Buy(){
                 <button className="Buy-btn" type="button" onClick={placeorder}>PlaceOrder</button>
             </div>
         </div>
+        </>
     )
 }
