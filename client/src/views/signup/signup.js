@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './signup.css';
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
+import showToast from 'crunchy-toast';
 
 function Signup(){
 
@@ -20,7 +21,7 @@ function Signup(){
         })
 
         if(response.data.success){
-            alert(response.data.message);
+            showToast(response.data.message,'success',3000);
             window.location.href ="/Login";
         }
     }

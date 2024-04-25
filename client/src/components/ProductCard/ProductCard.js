@@ -1,8 +1,10 @@
 import React from "react";
 import './productcard.css';
 import {Link} from 'react-router-dom';
+import ShowToast from'crunchy-toast';
 
 function ProductCard({id,name,price,description,image}){
+
     return (
         <div className="product-card">
             <img src={image} alt={`Product: ${name}`} className="product-card-image"/>
@@ -13,7 +15,7 @@ function ProductCard({id,name,price,description,image}){
 
             <div className="btn-stack">
             <Link className="btn" type="button" to={`/buy/${id}`}>Buy Now</Link>
-            <button className="btn" type="button">Add To cart</button>
+            <Link className="btn" type="button" to={`/buy/${id}`}>Add To cart</Link>
             </div>
         </div>
     )

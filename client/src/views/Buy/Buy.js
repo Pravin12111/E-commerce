@@ -4,6 +4,7 @@ import checkLogin from "../../utils/Auth";
 import axios from "axios";
 import "./Buy.css";
 import Navbar from "../../components/Navbar/Navbar";
+import showToast from 'crunchy-toast';
 
 export default function Buy(){
     const {id} = useParams();
@@ -47,7 +48,7 @@ export default function Buy(){
             shippingAddress:shippingAddress,
         })
 
-        alert(response.data.message);
+        showToast(response.data.message,'success',5000);
         window.location.href = "/orders"
     }
     return(

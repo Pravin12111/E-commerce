@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './login.css';
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
+import ShowToast from 'crunchy-toast';
 
 function Login(){
 
@@ -15,7 +16,7 @@ function Login(){
             password:password
         })
 
-        alert(response.data.message);
+        ShowToast(response.data.message,'Success',5000);
 
         if(response.data.success){
             localStorage.setItem("user",JSON.stringify(response.data.data));
