@@ -12,6 +12,8 @@
     width: 100%;
     z-index: 1000;
     position: relative;
+    border: 1px solid gold;
+    border-radius: 30px;
   }
   
   .logo{

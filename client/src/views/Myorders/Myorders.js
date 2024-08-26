@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Myorders.css";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
+
 
 function Myorders(){
 
@@ -29,6 +31,7 @@ function Myorders(){
 
                     const {product,quantity,shippingAddress} = order;
                     return (
+    
                         <div key={index} className="order-card">
                             <div className="img">
                             <img src={product.image} className="img-container"/>
@@ -40,6 +43,10 @@ function Myorders(){
                             <p>Total Amount: {product.price * quantity}</p>
                             <p>Shipping Address: {shippingAddress}</p>
                             </div>
+                            <div className="btn-container">
+                            <Link className="btnn" type="button" to={`https://maps.app.goo.gl/aa5Bmg3hdzx5YQ6G6`}>Track Your Order</Link><br/>
+                            <Link className="btnn" type="button" to={``}>Cancel Order</Link>
+            </div>
                         </div>
                     )
                 })

@@ -1,7 +1,8 @@
 body{
     margin: auto;
     padding: auto;
-    background-color: #fff;
+    /*background-color: #d1de19;*/
+    background-color: rgb(55, 12, 59);
 }
 .text-center{
     text-align: center;

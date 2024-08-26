@@ -1,7 +1,7 @@
 import React from "react";
 import './productcard.css';
 import {Link} from 'react-router-dom';
-import ShowToast from'crunchy-toast';
+//import ShowToast from'crunchy-toast';
 
 function ProductCard({id,name,price,description,image}){
 
@@ -11,7 +11,7 @@ function ProductCard({id,name,price,description,image}){
             
             <h2>{name}</h2>
             <h3>{price}</h3>
-            <p>{description}</p>
+            <p className="para">{description}</p>
 
             <div className="btn-stack">
             <Link className="btn" type="button" to={`/buy/${id}`}>Buy Now</Link>
