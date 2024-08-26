@@ -12,7 +12,8 @@ function Myorders(){
     const fetchorders = async()=>{
 
         const user = JSON.parse(localStorage.getItem("user"))|| null;
-        const response = await axios.get(`/orders?id=${user._id}`);
+        const response = await axios.get(`e-commerce-blond-zeta.vercel.app
+/orders?id=${user._id}`);
 
         setOrders(response.data.data);
     }
