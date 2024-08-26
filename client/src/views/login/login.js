@@ -11,7 +11,8 @@ function Login(){
     
 
     const login = async()=>{
-        const response =await axios.post("/login",{
+        const response =await axios.post("e-commerce-blond-zeta.vercel.app
+/login",{
             email:email,
             password:password
         })
