@@ -13,7 +13,8 @@ function Signup(){
 
 
     const signup = async()=>{
-        const response = await axios.post("/signup",{
+        const response = await axios.post("e-commerce-blond-zeta.vercel.app
+/signup",{
             name: name,
             email: email,
             mobile: mobile,
