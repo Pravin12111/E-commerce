@@ -10,7 +10,7 @@ function Home(){
 
     const loadProducts = async () => {
         try {
-            const response = await axios.get('/products');
+            const response = await axios.get('e-commerce-blond-zeta.vercel.app/products');
             setProducts(response?.data?.data || []);
             console.log(response?.data?.data)
         } catch (error) {
