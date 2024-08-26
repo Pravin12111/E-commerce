@@ -18,7 +18,8 @@ export default function Buy(){
         if(!id){
             window.location.href = "/";
         }
-        const response = await axios.get(`/product/${id}`)
+        const response = await axios.get(`e-commerce-blond-zeta.vercel.app
+/product/${id}`)
 
         setProduct(response.data.data);
     };
